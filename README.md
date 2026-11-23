@@ -34,6 +34,8 @@ start_i  = max(0, i * stripe_h - overlap)
 end_i    = min(H, (i + 1) * stripe_h + overlap)
 ```
 
+![Ejemplo de solapamiento entre franjas](overlap.png)
+
 De esta manera, las regiones vecinas comparten información en sus bordes y reducen la discontinuidad que podría producirse al dividir al cuerpo en partes estrictamente disjuntas.
 
 La implementación propuesta se encuentra en `OverlappedPartPool2d` dentro de [libs/models/vit_encoder.py](libs/models/vit_encoder.py). Actualmente, el bloque tradicional de pooling permanece activo y el bloque solapado está disponible como propuesta dentro del constructor de `TMGF`; debe activarse al sustituir el `AvgPool2d` original por `OverlappedPartPool2d`.
