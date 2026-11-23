@@ -18,14 +18,15 @@ La cita bibliográfica del trabajo base se incluye al final de este README.
 
 ## Idea central: parches solapados
 
-El mapa de características se divide verticalmente siguiendo las granularidades configuradas en `MODEL.GRANULARITIES`:
+El mapa de características se divide en franjas siguiendo las granularidades configuradas en `MODEL.GRANULARITIES`. La división 2-split genera dos regiones locales:
 
-```text
-Rama 2-split: |------- A -------|------- B -------|
-Rama 3-split: |--- C ---|--- D ---|--- E ---|
-```
+![Ejemplo de división 2-split en dos franjas](2split.png)
 
-Cada franja ocupa una sección con un margen adicional de solapamiento. Para una altura de mapa `H`, una granularidad `g` y una proporción `r = 0.20`, la altura base de cada franja es `H/g` y el margen compartido es:
+La división 3-split genera tres regiones locales:
+
+![Ejemplo de división 3-split en tres franjas](3split.png)
+
+Las imágenes ilustran las divisiones base. En la propuesta de pooling solapado, cada franja se extiende hacia sus vecinas con un margen adicional. Para una altura de mapa `H`, una granularidad `g` y una proporción `r = 0.20`, la altura base de cada franja es `H/g` y el margen compartido es:
 
 ```text
 overlap = round(r * (H / g))
