@@ -81,23 +81,6 @@ Dentro de la región elegida, el sistema:
 
 Las regiones se construyen con la misma proporción de solapamiento (`0.20`) usada por el pooling propuesto.
 
-## Requisitos
-
-- Python;
-- PyTorch;
-- torchvision;
-- yacs;
-- CUDA recomendada para el entrenamiento completo.
-
-Instalación sugerida:
-
-```bash
-conda create -n tmgf-overlap python=3.7
-conda activate tmgf-overlap
-pip install -r requirements.txt
-```
-
-El código depende de un peso previo ViT-S/16+ICS. La ruta predeterminada se establece en `MODEL.PRETRAIN_PATH`.
 
 ## Preparación de datos
 
@@ -142,31 +125,6 @@ python train.py \
   MEMORY_BANK.POS_K 2
 ```
 
-Los registros se crean como `YYYYMMDD_TASK_NAME.txt` en `LOG.LOG_DIR`. Los pesos se guardan en `LOG.CHECKPOINT.SAVE_DIR/TASK_NAME`.
-
-Cada archivo de configuración puede modificar valores desde la línea de comandos. Ejemplo:
-
-```bash
-python train.py \
-  --conf configs/exp_cfg3_stripe_directed.yml \
-  TRAIN.EPOCHS 50 \
-  TRAIN.ITERS 200 \
-  TRAIN.BATCHSIZE 32
-```
-
-## Visualización de la oclusión dirigida
-
-Antes de entrenar, puede comprobar visualmente las máscaras generadas:
-
-```bash
-python debug_augmentation.py --img_dir /ruta/a/imagenes
-```
-
-El programa genera `aug_sanity_check.png` con tres columnas:
-
-- imagen original;
-- Configuración 2 con Random Erasing intensificado;
-- Configuración 3 con oclusión dirigida.
 
 ## Evaluación
 
@@ -185,24 +143,6 @@ python evaluate.py \
   TEST.RE_RANK True
 ```
 
-## Diseño experimental recomendado
-
-Para atribuir correctamente cada mejora, se recomienda mantener fijos:
-
-- backbone y peso preentrenado;
-- resolución de entrada;
-- semillas;
-- número de épocas e iteraciones;
-- dataset y partición;
-- pseudoetiquetas y hiperparámetros de memoria;
-- estrategia de agrupamiento;
-- protocolo de evaluación.
-
-La interpretación esperada es:
-
-1. **Configuración 1** establece la referencia con parches solapados y Random Erasing estándar;
-2. **Configuración 2** mide el efecto de intensificar la oclusión;
-3. **Configuración 3** determina si alinear la oclusión con las franjas aporta una ganancia adicional sobre el control intensificado.
 
 ## Estructura relevante
 
@@ -224,17 +164,6 @@ evaluate.py                     # evaluación
 train.sh                        # comandos de referencia
 ```
 
-## Métricas y registros
-
-La salida de entrenamiento incluye:
-
-- descripción de la configuración;
-- número de clusters detectados;
-- cantidad de proxies generados;
-- outliers excluidos;
-- learning rate;
-- resultados periódicos de evaluación;
-- pesos guardados a intervalos configurados.
 
 ## Resultados
 
