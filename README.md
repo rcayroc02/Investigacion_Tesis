@@ -237,13 +237,30 @@ La salida de entrenamiento incluye:
 
 ## Resultados
 
-Los resultados cuantitativos deben registrarse por configuración y dataset usando el mismo formato y partición:
+Los resultados se expresan como mAP y CMC en Rank-1, Rank-5 y Rank-10, de acuerdo con las métricas que registra el evaluador. **Baseline** es la referencia; las tres configuraciones restantes corresponden a contribuciones de este trabajo.
+
+| Dataset | Configuración | mAP | Rank-1 | Rank-5 | Rank-10 |
+|---|---|---:|---:|---:|---:|
+| Market1501 | Baseline (referencia) | 89.3 | 95.7 | 98.0 | 98.8 |
+| Market1501 | Solo Solapamiento | 89.3 | 95.2 | 98.2 | 98.6 |
+| Market1501 | Solo Aumentaciones | 89.1 | 95.4 | 98.0 | 98.7 |
+| Market1501 | Aumentaciones + Solapamiento | 89.8 | 95.7 | 98.3 | 99.0 |
+| DukeMTMC | Baseline (referencia) | 76.2 | 86.0 | 93.0 | 94.2 |
+| DukeMTMC | Solo Solapamiento | 76.3 | 87.0 | 93.2 | 94.6 |
+| DukeMTMC | Solo Aumentaciones | 75.3 | 87.7 | 92.1 | 93.9 |
+| DukeMTMC | Aumentaciones + Solapamiento | 76.4 | 86.4 | 93.4 | 94.7 |
+| MSMT17 | Baseline (referencia) | 57.1 | 83.1 | 89.9 | 91.8 |
+| MSMT17 | Solo Solapamiento | 58.0 | 83.7 | 89.7 | 92.3 |
+| MSMT17 | Solo Aumentaciones | 57.4 | 83.3 | 90.0 | 92.1 |
+| MSMT17 | Aumentaciones + Solapamiento | 59.2 | 84.1 | 90.5 | 92.5 |
+
+Resultados adicionales en OCC-Duke:
 
 | Dataset | Configuración | Rank-1 | mAP |
 |---|---|---:|---:|
-| OCC-Duke | 1. Referencia | 40.5 | 48.5|
+| OCC-Duke | 1. Referencia | 40.5 | 48.5 |
 | OCC-Duke | 2. RE intensificado | 47.4 | 55.9 |
-| OCC-Duke | 3. Oclusión dirigida | 40.5 | 48.4  |
+| OCC-Duke | 3. Oclusión dirigida | 40.5 | 48.4 |
 
 Las imágenes existentes `assets/pipeline.png` y `assets/perf.png` corresponden a la implementación TMGF original y pueden utilizarse como referencia visual del método base.
 
