@@ -1,0 +1,51 @@
+# Datasets and downloaded archives
+/datasets/
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Pretrained weights and training checkpoints
+/pretrained/
+/chck/
+/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Training logs and generated outputs
+/logs/
+/output/
+/outputs/
+*.log
+aug_sanity_check.png
+
+# Local helper and test scripts
+/auxssss.txt
+/image.py
+/pipinstall.py
+/pip_install.txt
+/test.py
+/testing.py
+/texting..py
+/transform_market.py
+/transform_market1501.py
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS and editor files
+Thumbs.db
+.DS_Store
+.idea/

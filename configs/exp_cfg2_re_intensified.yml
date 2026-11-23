@@ -1,0 +1,36 @@
+# Config 2 – Solapamiento + Random Erasing intensificado (control critico)
+TASK_NAME: "cfg2_solapamiento_re_intensificado"
+DESC: "RE con mayor probabilidad e intensidad para nivel de oclusion comparable a cfg3."
+
+AUGMENTATION:
+  TYPE: "re_intensified"
+
+MODEL:
+  STEM_CONV: true
+  PRETRAIN_HW_RATIO: 2
+  NUM_PARTS: 5
+  GRANULARITIES: [2, 3]
+  BRANCH: "all"
+  GLOBAL_FEATURE_TYPE: "mean"
+  HAS_HEAD: true
+  HAS_EARLY_FEATURE: true
+  ENABLE_EARLY_NORM: false
+
+INPUT:
+  HEIGHT: 384
+  WIDTH: 128
+  PIXEL_MEAN: [0.3525, 0.3106, 0.3140]
+  PIXEL_STD:  [0.2660, 0.2522, 0.2505]
+
+TRAIN:
+  EPOCHS: 50
+  ITERS: 200
+  BATCHSIZE: 32
+  FP16: true
+
+MEMORY_BANK:
+  MOMENTUM: 0.2
+  PROXY_TEMP: 0.07
+  BG_KNN: 50
+  BALANCE_W: 0.15
+  PART_W: 0.1
