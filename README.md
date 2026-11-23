@@ -241,9 +241,9 @@ Los resultados cuantitativos deben registrarse por configuración y dataset usan
 
 | Dataset | Configuración | Rank-1 | mAP |
 |---|---|---:|---:|
-| OCC-Duke | 1. Referencia | — | — |
-| OCC-Duke | 2. RE intensificado | — | — |
-| OCC-Duke | 3. Oclusión dirigida | — | — |
+| OCC-Duke | 1. Referencia | 40.5 | 48.5|
+| OCC-Duke | 2. RE intensificado | 47.4 | 55.9 |
+| OCC-Duke | 3. Oclusión dirigida | 40.5 | 48.4  |
 
 Las imágenes existentes `assets/pipeline.png` y `assets/perf.png` corresponden a la implementación TMGF original y pueden utilizarse como referencia visual del método base.
 
